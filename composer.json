@@ -1,0 +1,11 @@
+{
+    "name": "goblindegook/delimiter-align",
+    "autoload": {
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8"
+    }
+}
