@@ -38,34 +38,34 @@ namespace goblindegook;
  *
  * @return string           Aligned multiline string.
  */
-function delimiter_align($string, $delimiter = ':', $options = array())
+function delimiter_align( $string, $delimiter = ':', $options = array() )
 {
-    $before = isset($options['before']) ? $options['before'] : '';
-    $after  = isset($options['after'])  ? $options['after']  : ' ';
-    $pad    = isset($options['pad'])    ? $options['pad']    : ' ';
-    $right  = !empty($options['right']);
+    $before = isset( $options['before'] ) ? $options['before'] : '';
+    $after  = isset( $options['after'] )  ? $options['after']  : ' ';
+    $pad    = isset( $options['pad'] )    ? $options['pad']    : ' ';
+    $right  = !empty( $options['right'] );
 
     $position = 0;
 
-    $lines = explode(PHP_EOL, $string);
+    $lines = explode( PHP_EOL, $string );
 
-    foreach ($lines as &$line) {
-        $line = explode($delimiter, $line, 2);
+    foreach ( $lines as &$line ) {
+        $line = explode( $delimiter, $line, 2 );
 
-        if (count($line) > 1) {
-            $line[0]  = rtrim($line[0]);
-            $line[1]  = ltrim($line[1]);
-            $position = max($position, strlen($line[0]));
+        if ( count( $line ) > 1 ) {
+            $line[0]  = rtrim( $line[0] );
+            $line[1]  = ltrim( $line[1] );
+            $position = max( $position, strlen( $line[0] ) );
         }
     }
 
-    foreach ($lines as &$line) {
-        $padding         = str_pad('', $position - strlen($line[0]), $pad);
-        $paddedDelimiter = $right ? $padding . $delimiter : $delimiter . $padding;
-        $line            = implode($before . $paddedDelimiter . $after, $line);
+    foreach ( $lines as &$line ) {
+        $padding          = str_pad( '', $position - strlen( $line[0] ), $pad );
+        $padded_delimiter = $right ? $padding . $delimiter : $delimiter . $padding;
+        $line             = implode( $before . $padded_delimiter . $after, $line );
     }
 
-    $alignedString = implode(PHP_EOL, $lines);
+    $aligned_string = implode( PHP_EOL, $lines );
 
-    return $alignedString;
+    return $aligned_string;
 }
