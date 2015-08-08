@@ -1,4 +1,4 @@
-# goblindegook/delimiter-align
+# goblindegook/delimiter-align [![Build Status](https://travis-ci.org/goblindegook/delimiter-align.svg?branch=master)](https://travis-ci.org/goblindegook/delimiter-align)
 
 Aligns and rebalances plain text multiline strings around a delimiter.
 
