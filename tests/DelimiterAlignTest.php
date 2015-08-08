@@ -13,9 +13,9 @@ class DelimiterAlignTest extends \PHPUnit_Framework_TestCase {
     public function testDelimiterAlign($file, $separator, $options) {
         $fixture = file_get_contents(__DIR__ . '/fixtures/' . $file);
 
-        list($subject, $expected) = explode("----\n", $fixture);
+        list($string, $expected) = explode("----\n", $fixture);
 
-        $actual = \goblindegook\delimiterAlign($subject, $separator, $options);
+        $actual = \goblindegook\delimiter_align($string, $separator, $options);
 
         $this->assertEquals($expected, $actual, $file);
     }
