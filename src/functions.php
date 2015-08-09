@@ -50,7 +50,10 @@ function delimiter_align( $string, $delimiter = ':', $options = array() )
     $lines = explode( PHP_EOL, $string );
 
     foreach ( $lines as &$line ) {
-        $line = explode( $delimiter, $line, 2 );
+
+        $line = preg_match( '/^\s+/', $line )
+            ? array( '', $line )
+            : explode( $delimiter, $line, 2 );
 
         if ( count( $line ) > 1 ) {
             $line[0]  = rtrim( $line[0] );
@@ -60,8 +63,9 @@ function delimiter_align( $string, $delimiter = ':', $options = array() )
     }
 
     foreach ( $lines as &$line ) {
+        $line_delimiter   = strlen( $line[0] ) ? $delimiter : $pad;
         $padding          = str_pad( '', $position - strlen( $line[0] ), $pad );
-        $padded_delimiter = $right ? $padding . $delimiter : $delimiter . $padding;
+        $padded_delimiter = $right ? $padding . $line_delimiter : $line_delimiter . $padding;
         $line             = implode( $before . $padded_delimiter . $after, $line );
     }
 

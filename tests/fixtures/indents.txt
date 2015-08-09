@@ -1,7 +1,13 @@
-  one : 1
-  two  :  2
-three   :   3
+English: one
+    two
+    three: ignore this delimiter
+Portuguese: um
+    dois
+    três
 ----
-  one: 1
-  two: 2
-three: 3
+English:    one
+            two
+            three: ignore this delimiter
+Portuguese: um
+            dois
+            três
