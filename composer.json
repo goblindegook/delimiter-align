@@ -1,5 +1,6 @@
 {
     "name": "goblindegook/delimiter-align",
+    "description": "Aligns and rebalances plain text multiline strings around a delimiter.",
     "license": "GPL-2.0+",
     "autoload": {
         "files": [
